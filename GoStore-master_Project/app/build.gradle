@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    // Add the Google services Gradle plugin
+    id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.noobshubham.gostore"
+        minSdk 21
+        targetSdk 33
+        versionCode 5
+        versionName "1.4"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
+    // implementation 'androidx.navigation:navigation-ui-ktx:2.5.1'
+
+    // SplashScreen
+    implementation 'androidx.core:core-splashscreen:1.0.0'
+
+    // EasyPermission
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
+    // Firebase Authentication & Google Auth
+    implementation 'com.google.firebase:firebase-auth:21.0.8'
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+    // Maps & Location
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
+    implementation 'com.google.maps.android:maps-utils-ktx:0.2'
+
+    // Add Google Places dependency
+    implementation 'com.google.android.libraries.places:places:2.6.0'
+
+    // Material Design autocomplete Searchbar
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
+
+    // Room components
+    implementation 'androidx.room:room-ktx:2.4.3'
+    kapt 'androidx.room:room-compiler:2.4.3'
+    androidTestImplementation 'androidx.room:room-testing:2.4.3'
+}
